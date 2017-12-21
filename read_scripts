@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#This is a script to check the read counts for your samples when in a .fastq.gz file format
+#USAGE: read_count.sh <output.file>
+
+for file in *.fastq.gz
+do
+  gunzip -k $file
+  newfile=$(basename $file .gz)
+  awk 'BEGIN{count=0}{count+=/\+/}END{print FILENAME "\t" count}' ${newfile} >> $1.txt
+  rm -f ${newfile}
+done
