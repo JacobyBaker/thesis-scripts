@@ -1,1 +1,1 @@
-# thesis-scriptsA line I wrote on my local computer
+# thesis-scripts
